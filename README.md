@@ -2,10 +2,11 @@
  3º laboratório da disciplina de Organização e Arquitetura de Computadores. Implementação de um processador uniciclo.
 
 Lista de tarefas:
-- [ ] Construir ULA
+- [x] Construir ULA
 - [ ] Memórias de instruções e dados
 - [ ] Banco de registradores
 - [ ] Controle
+- [ ] Controle ULA
 - [ ] Sinal de reset
 - [ ] Definir frequência máxima
 - [ ] Registradores do CSR
