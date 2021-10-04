@@ -3,6 +3,7 @@
 
 Lista de tarefas:
 - [x] Construir ULA
+- [x] Gerador de imediatos
 - [ ] Memórias de instruções e dados
 - [ ] Banco de registradores
 - [ ] Controle
