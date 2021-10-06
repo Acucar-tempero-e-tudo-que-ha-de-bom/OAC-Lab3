@@ -5,9 +5,9 @@ Lista de tarefas:
 - [x] Construir ULA
 - [x] Gerador de imediatos
 - [x] Memórias de instruções e dados
-- [ ] Banco de registradores
+- [x] Banco de registradores
 - [ ] Controle
-- [ ] Controle ULA
+- [x] Controle ULA
 - [ ] Sinal de reset
 - [ ] Definir frequência máxima
 - [ ] Registradores do CSR
