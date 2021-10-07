@@ -8,7 +8,7 @@ Lista de tarefas:
 - [x] Banco de registradores
 - [X] Controle
 - [x] Controle ULA
-- [ ] Sinal de reset
+- [ ] Sinal de reset/clock
 - [ ] Definir frequência máxima
 - [ ] Registradores do CSR
 - [ ] Displays de monitoramento
