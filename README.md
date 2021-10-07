@@ -6,7 +6,7 @@ Lista de tarefas:
 - [x] Gerador de imediatos
 - [x] Memórias de instruções e dados
 - [x] Banco de registradores
-- [ ] Controle
+- [X] Controle
 - [x] Controle ULA
 - [ ] Sinal de reset
 - [ ] Definir frequência máxima
