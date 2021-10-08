@@ -6,9 +6,9 @@ Lista de tarefas:
 - [x] Gerador de imediatos
 - [x] Memórias de instruções e dados
 - [x] Banco de registradores
-- [X] Controle
+- [x] Controle
 - [x] Controle ULA
-- [ ] Sinal de reset/clock
+- [x] Sinal de reset/clock
 - [ ] Definir frequência máxima
 - [ ] Registradores do CSR
 - [ ] Displays de monitoramento
