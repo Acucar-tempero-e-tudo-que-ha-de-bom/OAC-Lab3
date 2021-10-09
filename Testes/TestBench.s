@@ -1,54 +1,56 @@
-# Teste microRISCV Processor
+		# Teste microRISCV Processor
+
 		jal x11, OK0				# testa o jal
-		addi x11, x11, -4		      # endereco do possivel erro no jal
+		addi x11, x11, -4		      	# endereco do possivel erro no jal
 
 ERRO:
    		lui x10, 0xEEEEE
-    		li x10, 0xEEE
+    		li x12, 0xEEE
+    		add x10, x10, x12			# se algo deu errado, coloca 0xEEEEEEEE em x10 e o endereco do erro em x11
 
-FIM:		jal x0, FIM
+FIM:		jal x0, FIM				# loop infinito
 
 OK0:
 		# andi
 		addi x3, x0, 0xF			# 1111
-		andi x4, x3, 5		      # 0101
-		addi x5, x0, 5		      # resultado esperado
+		andi x4, x3, 5		      		# 0101
+		addi x5, x0, 5		      		# resultado esperado
 		jal x11, T1				# salva endereco do possivel erro no andi
 T1:	
-   		beq x4, x5, OK1		      # verifica se deu certo
-		addi x11, x11, -12	      	# endereco que deu erro
+   		beq x4, x5, OK1		      		# verifica se deu certo
+		addi x11, x11, -12	      		# endereco que deu erro
 		jal x0, ERRO
 
 OK1:
     		# ori
-    		addi x3, x0, 0xA	      	# 1010
-		ori x4, x3, 0x5		      # 0101
+    		addi x3, x0, 0xA	      		# 1010
+		ori x4, x3, 0x5		      		# 0101
 		addi x5, x0, 0xF		    	# resultado esperado
 		jal x11, T2		          	# salva endereco do possivel erro no andi
     
 T2:
-    		beq x4, x5, OK2		      # verifica se deu certo
+    		beq x4, x5, OK2		      		# verifica se deu certo
 		addi x11, x11, -12	     	 	# endereco que deu erro
 		jal x0, ERRO
 
 OK2:
     		# xori
-		addi x3, x0, 10 	      	# 1010
-		xori x4, x3, 5		      # 0101
-		addi x5, x0, 15		      # 1111
+		addi x3, x0, 10 	      		# 1010
+		xori x4, x3, 5		      		# 0101
+		addi x5, x0, 15		      		# 1111
 		jal x11, T3		          	# salva endereco do possivel erro no xori
 
 T3:
-    		beq x4, x5, OK3		      # verifica se deu certo
-		addi x11, x11, -12	      	# endereco que deu erro
+    		beq x4, x5, OK3		      		# verifica se deu certo
+		addi x11, x11, -12	      		# endereco que deu erro
 		jal x0, ERRO
 
 OK3:
     		# slti
-    		addi x31, x0, -1        	# x31 = -1
+    		addi x31, x0, -1        		# x31 = -1
     		slti x30, x31, 0
     		addi x29, x0, 1
-    		jal x11, T4             	# salva endereco do possivel erro slti
+    		jal x11, T4             		# salva endereco do possivel erro slti
 
 T4:
     		beq x29, x30, OK4
@@ -57,59 +59,58 @@ T4:
     
 OK4:
     		# sltiu
-    		addi x3, x0, -1	        	# 0xffff
-		sltiu x4, x3, 1		      # 0x1
+    		addi x3, x0, -1	        		# 0xffff
+		sltiu x4, x3, 1		      		# 0x1
 		addi x5, x0, 0xF		    	# resultado esperado
 		jal x11, T5		          	# salva endereco do possivel erro no andi
     
 T5:
-   	 	beq x4, x0, OK5		      # verifica se deu certo
-		addi x11, x11, -12	      	# endereco que deu erro
+   	 	beq x4, x0, OK5		      		# verifica se deu certo
+		addi x11, x11, -12	      		# endereco que deu erro
 		jal x0, ERRO
     
 
 OK5:
     		# slli
-		addi x3, x0, 1	        	# 1
-		slli x4, x3, 2		      # 2
-		addi x5, x0, 4		      # 4
+		addi x3, x0, 1	        		# 1
+		slli x4, x3, 2		      		# 2
+		addi x5, x0, 4		      		# 4
 		jal x11, T6		          	# salva endereco do possivel erro no slli
 
 T6:
-    		beq x4, x5, OK6		      # verifica se deu certo
-		addi x11, x11, -12	      	# endereco que deu erro
+    		beq x4, x5, OK6		      		# verifica se deu certo
+		addi x11, x11, -12	      		# endereco que deu erro
 		jal x0, ERRO
 OK6:
     		# lui
-    		addi x28, x0, 0x100     	# 0x100
-    		slli x28, x28, 4        	# 0x1000
-    		addi x28, x28, 1        	# 0x1001
-    		slli x28, x28, 16	      	# resultado esperado
-		lui x27, 0x10010  	    	# 0x10010000
+    		addi x28, x0, 0x100     		# 0x100
+    		slli x28, x28, 4        		# 0x1000
+    		addi x28, x28, 1        		# 0x1001
+    		slli x28, x28, 16	      		# resultado esperado
+		lui x27, 0x10010  	    		# 0x10010000
 		jal x11, T7		          	# salva endereco do possivel erro no lui
 
 T7:
     		beq x27, x28, OK7		   	# verifica se deu certo
-		addi x11, x11, -8 	      	# endereco que deu erro
+		addi x11, x11, -8 	      		# endereco que deu erro
 		jal x0, ERRO
 
 OK7:
     		# auipc
-    		auipc x10, 0
-    		addi x9, x11, 12
+    		auipc x10, 0				# x10 = PC (com auipc)
+    		addi x9, x11, 12			# x9 = PC
     		jal x11, T8
 
 T8:
-    		beq x9, x10, OK8
-    		addi x11, x11, -12
+    		beq x9, x10, OK8			# verifica se deu certo
+    		addi x11, x11, -12			# valor do endereco do possivel erro no auipc 
     		jal x0, ERRO
 
 OK8:
     		# jalr
-    		auipc x5, 0
-    
-
-T9:
+    		lui x24, 0x00400
+    		addi x24, x24, 0x104			# x24 = 0x00400104 (PC atual)
+    		jalr x11, x24, 0x8			# pula pra duas instrucoes depois
 
 OK9:
     		# lw e sw
@@ -170,7 +171,7 @@ OK14:
 		addi x25, x0, 0		# -1
 		jal x11, T15     		# salva endereco do possivel erro no bgeu
 T15:
-    		bgeu x25, x26, OK15
+    		bgeu x26, x25, OK15
     		jal x0, ERRO
 OK15:
     		# add
@@ -189,7 +190,7 @@ OK16:
     		# sub
     		addi x20, x0, -1
     		sub x19, x20, x20
-    		jal x11, T7
+    		jal x11, T17
 
 T17:
     		beq x19, x0, OK17
@@ -212,7 +213,7 @@ T18:
 OK18:
     		# or
     		addi x15, x0, 10  # 1010
-    		addi x14, x0, 5   # 0100
+    		addi x14, x0, 4   # 0100
     		or x13, x15, x14
     		addi x12, x0, 14  # 1110 resultado esperado
     		jal x11, T19
@@ -226,12 +227,13 @@ OK19:
     		# xor
     		addi x12, x0, 17  # 10001 vitu eh muito legal :)
     		addi x10, x0, 14  # 01110
-    		addi x9, x0, 15   # 11111
+    		addi x9, x0, 31   # 11111
+    		xor x8, x12, x10
     		jal x11, T20
 
-T20:
-    		xor x8, x12, x10
+T20:    		
     		beq x8, x9, OK20
+    		addi x11, x11, -8
     		jal x0, ERRO
 
 OK20:
@@ -249,9 +251,9 @@ T21:
 OK21:
     		# sltu
     		addi x3, x0, -1   # -1
-    		slt x2, x0, x3    
+    		sltu x2, x0, x3    
     		addi x1, x0, 1    # 1 valor esperado
-    		jal x11, T22       # salva endereco do possivel erro slti
+    		jal x11, T22       # salva endereco do possivel erro sltu
 
 T22:
     		beq x1, x2, OK22
@@ -267,11 +269,12 @@ OK22:
 
 T23:
     		addi x1, x0, 666  # 666
-    		addi x11, x11, -8
     		beq x3, x1, CORRETO
+    		addi x11, x11, -8
     		jal x0, ERRO
 
 CORRETO:
     		lui x10, 0xCCCCC
-		li x10, 0xCCC
+		li x12, 0xCCC
+		add x10, x10, x12	# se tudo deu certo, coloca CCCCCCCC em x10
     		jal FIM
