@@ -1,6 +1,6 @@
 # Teste microRISCV Processor
-		jal x1, OK0				# testa o jal
-		addi x1, x1, -4		      # endereco do possivel erro no jal
+		jal x11, OK0				# testa o jal
+		addi x11, x11, -4		      # endereco do possivel erro no jal
 
 ERRO:
    		lui x10, 0xEEEEE
@@ -16,7 +16,7 @@ OK0:
 		jal x11, T1				# salva endereco do possivel erro no andi
 T1:	
    		beq x4, x5, OK1		      # verifica se deu certo
-		addi x11, x1, -12	      	# endereco que deu erro
+		addi x11, x11, -12	      	# endereco que deu erro
 		jal x0, ERRO
 
 OK1:
@@ -28,7 +28,7 @@ OK1:
     
 T2:
     		beq x4, x5, OK2		      # verifica se deu certo
-		addi x11, x1, -12	     	 	# endereco que deu erro
+		addi x11, x11, -12	     	 	# endereco que deu erro
 		jal x0, ERRO
 
 OK2:
@@ -39,8 +39,8 @@ OK2:
 		jal x11, T3		          	# salva endereco do possivel erro no xori
 
 T3:
-    		beq x4, x5, OK1		      # verifica se deu certo
-		addi x11, x1, -12	      	# endereco que deu erro
+    		beq x4, x5, OK3		      # verifica se deu certo
+		addi x11, x11, -12	      	# endereco que deu erro
 		jal x0, ERRO
 
 OK3:
@@ -52,7 +52,7 @@ OK3:
 
 T4:
     		beq x29, x30, OK4
-    		addi x11, x1, -12
+    		addi x11, x11, -12
     		jal x0, ERRO
     
 OK4:
@@ -64,7 +64,7 @@ OK4:
     
 T5:
    	 	beq x4, x0, OK5		      # verifica se deu certo
-		addi x11, x1, -12	      	# endereco que deu erro
+		addi x11, x11, -12	      	# endereco que deu erro
 		jal x0, ERRO
     
 
@@ -77,7 +77,7 @@ OK5:
 
 T6:
     		beq x4, x5, OK6		      # verifica se deu certo
-		addi x11, x1, -12	      	# endereco que deu erro
+		addi x11, x11, -12	      	# endereco que deu erro
 		jal x0, ERRO
 OK6:
     		# lui
@@ -90,7 +90,7 @@ OK6:
 
 T7:
     		beq x27, x28, OK7		   	# verifica se deu certo
-		addi x11, x1, -8 	      	# endereco que deu erro
+		addi x11, x11, -8 	      	# endereco que deu erro
 		jal x0, ERRO
 
 OK7:
