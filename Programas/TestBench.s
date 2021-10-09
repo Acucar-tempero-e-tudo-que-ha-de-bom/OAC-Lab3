@@ -61,12 +61,11 @@ OK4:
     		# sltiu
     		addi x3, x0, -1	        		# 0xffff
 		sltiu x4, x3, 1		      		# 0x1
-		addi x5, x0, 0xF		    	# resultado esperado
 		jal x11, T5		          	# salva endereco do possivel erro no andi
     
 T5:
    	 	beq x4, x0, OK5		      		# verifica se deu certo
-		addi x11, x11, -12	      		# endereco que deu erro
+		addi x11, x11, -8	      		# endereco que deu erro
 		jal x0, ERRO
     
 
