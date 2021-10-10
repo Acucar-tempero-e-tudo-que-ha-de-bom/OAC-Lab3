@@ -9,21 +9,16 @@ MAIN:   jal ra, INICIALIZA
 
 	la a0,Vetor
 	li a1,N
-	#jal SHOW
 	jal ra, SHOW2
 
 	la a0,Vetor
 	li a1,N
-	jal ra, SORT
+	jal ra,SORT
 
 	la a0,Vetor
 	li a1,N
-	#jal SHOW
-	jal ra, SHOW2
+	jal ra,SHOW2
 
-
-	#li a7,10
-	#ecall
 FINAL:	jal zero, FINAL
 
 SWAP:	slli t1,a1,2
