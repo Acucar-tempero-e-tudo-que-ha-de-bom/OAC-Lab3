@@ -10,7 +10,7 @@ Lista de tarefas:
 - [x] Controle ULA
 - [x] Sinal de reset/clock
 - [ ] Definir frequência máxima
-- [ ] Registradores do CSR
-- [ ] Displays de monitoramento
-- [ ] Criar o programa TestBench.s
+- [x] Registradores do CSR
+- [x] Displays de monitoramento
+- [x] Criar o programa TestBench.s
 - [ ] Filmar a execução do processador na maior frequência possível do teste2.s (verificar equação fundamental de OAC)
