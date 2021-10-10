@@ -22,8 +22,8 @@ MAIN:   jal ra, INICIALIZA
 	jal ra, SHOW2
 
 
-	li a7,10
-	ecall
+	#li a7,10
+	#ecall
 FINAL:	jal zero, FINAL
 
 SWAP:	slli t1,a1,2
